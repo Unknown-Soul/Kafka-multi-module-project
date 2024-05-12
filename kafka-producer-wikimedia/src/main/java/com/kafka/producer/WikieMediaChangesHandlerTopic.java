@@ -25,24 +25,22 @@ public class WikieMediaChangesHandlerTopic implements EventHandler {
     @Override
     public void onClosed() throws Exception {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onClosed'");
     }
 
     @Override
     public void onComment(String arg0) throws Exception {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onComment'");
     }
 
     @Override
     public void onError(Throwable arg0) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onError'");
     }
 
     @Override
     public void onMessage(String arg0, MessageEvent arg1) throws Exception {
-        LOGGER.info(String.format("event data -> s%", arg1.getData()));
+        LOGGER.info(String.format("event data -> %s", arg1.getData()));
+
         // send message to kafka
         kafkaTemplate.send(topic, arg1.getData());
     }
@@ -50,7 +48,6 @@ public class WikieMediaChangesHandlerTopic implements EventHandler {
     @Override
     public void onOpen() throws Exception {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onOpen'");
     }
     
 }
